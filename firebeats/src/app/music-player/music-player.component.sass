@@ -1,5 +1,6 @@
 .music-player
     display: flex
+    position: relative
     position: fixed
     bottom: 20px
     justify-content: center
@@ -10,3 +11,19 @@
     width: 30px
     margin: 0 10px
     opacity: 0.5
+
+.playerBG
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    z-index: 0
+    opacity: 0.2
+
+.playerBG path
+    transition: all 0.6s
+    
+
+.music-player:hover .playerBG path
+  d: path("M 0 100 V 0 Q 50 0 100 0 V 100 z")
+
