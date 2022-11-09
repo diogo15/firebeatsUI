@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MusicPlayerComponent } from './music-player/music-player.component';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { MusicPlayerComponent } from './components/music-player/music-player.component';
+import { PlaylistComponent } from './components/playlist/playlist.component';
 
 @NgModule({
   declarations: [
