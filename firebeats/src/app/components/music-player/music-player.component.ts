@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./music-player.component.sass']
 })
 export class MusicPlayerComponent implements OnInit {
+  
+  isPlaying : boolean = false;
 
-  constructor() { }
-
+  constructor() {
+  }
+  
   ngOnInit(): void {
   }
 

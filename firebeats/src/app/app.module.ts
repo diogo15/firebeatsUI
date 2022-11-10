@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MusicPlayerComponent } from './components/music-player/music-player.component';
 import { PlaylistComponent } from './components/playlist/playlist.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MusicPlayerComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    HomePageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
