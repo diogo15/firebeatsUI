@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { SONG_API_URL } from '../../constants';
 
 @Component({
   selector: 'app-song-upload',
   templateUrl: './song-upload.component.html',
   styleUrls: ['./song-upload.component.sass']
 })
+
 export class SongUploadComponent implements OnInit {
 
   form: FormGroup;
@@ -34,8 +36,8 @@ export class SongUploadComponent implements OnInit {
     var song = this.form.get('file');
     //formData.append('name', name?name.value:"");
     formData.append('file', song?song.value:"");
-    this.http
-      .post('http://localhost:5237/api/BufferedFileUpload', formData)
+    this.http 
+      .post(SONG_API_URL+'/FileUpload', formData)
       .subscribe({
         next: (response) => console.log(response),
         error: (error) => console.log(error),

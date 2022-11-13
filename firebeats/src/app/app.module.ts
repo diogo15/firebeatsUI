@@ -10,6 +10,7 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
+import { GameComponent } from './components/game/game.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SongUploadComponent } from './components/song-upload/song-upload.compon
     PlaylistComponent,
     HomePageComponent,
     LoginPageComponent,
-    SongUploadComponent
+    SongUploadComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule,
