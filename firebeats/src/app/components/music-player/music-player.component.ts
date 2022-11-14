@@ -10,12 +10,12 @@ import { AudioStream } from "../../interfaces/audio-stream";
 })
 export class MusicPlayerComponent implements OnInit {
   
-  myState: AudioStream = {} as AudioStream;
+  state: AudioStream = {} as AudioStream;
   currentFile: any = {};
 
-  constructor(private audioService:AudioManagerService) {
+  constructor(public audioService:AudioManagerService) {
     this.audioService.getState().subscribe(state => {
-      this.myState = state;
+      this.state = state;
     });
   }  
 
