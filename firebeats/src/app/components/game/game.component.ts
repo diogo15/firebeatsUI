@@ -44,7 +44,7 @@ export class GameComponent implements OnInit {
   initGame(){
     //console.log(this.soundwave[0][1]);
     this.context2D.canvas.width = 1000;
-    this.context2D.canvas.height = 800;
+    this.context2D.canvas.height = 300;
     this.context2D.fillStyle = "#FFFFFF";
 
     this.play();
@@ -74,11 +74,12 @@ export class GameComponent implements OnInit {
       this.stop();
     }
 
-    if(this.time.elapsed2 > 2000){
-      this.bigWave.max = this.soundwave[currentSecond][0];
+    if(this.time.elapsed2 > 2500){
+      console.log(currentSecond);
+      this.bigWave.max = this.soundwave[currentSecond][0]*1.5;
       this.bigWave.long = 0;
       this.bigWave.opacity = 1;
-      this.bigWave.seconds = 2;
+      this.bigWave.seconds = 2.5;
       
       this.time.start2 = now;
     }    
