@@ -1,2 +1,22 @@
-<p>login-page works!</p>
-<a routerLink="/homepage">Login</a>
+
+<div class="body">
+    <div class="login">
+        <mat-spinner *ngIf="loading" diameter="50" class="spinner"></mat-spinner>
+        <form *ngIf="!loading"  [formGroup]= "form"  (ngSubmit)="ingresar()">
+            
+            <img src="" width="50%">
+            <h1>Acceso</h1>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input matInput autocomplete="off" formControlName="user">
+              </mat-form-field>
+              <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput autocomplete="off" formControlName="password">
+              </mat-form-field>
+              <button type="submit" mat-raised-button class="ancho button" color="primary" [disabled]="form.invalid" >Ingresar</button>
+            </form>
+        
+    </div>
+    </div>
+    
