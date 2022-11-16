@@ -20,7 +20,11 @@ export class MusicPlayerComponent implements OnInit {
   }  
 
   streamAudio(url:string) {
-    this.audioService.playStream(url).subscribe(events => {});
+    if(this.state.currentTime<=0){
+      this.audioService.playStream(url).subscribe(events => {});
+    }else{
+      this.audioService.play();
+    }
   }
 
   stopAudio() {

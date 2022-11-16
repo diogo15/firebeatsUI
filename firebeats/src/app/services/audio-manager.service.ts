@@ -17,8 +17,8 @@ export class AudioManagerService {
     playing: false,
     readableCurrentTime: '',
     readableDuration: '',
-    duration: undefined,
-    currentTime: undefined,
+    duration: 0,
+    currentTime: 0,
     canplay: false,
     error: false,
   };
@@ -123,8 +123,8 @@ export class AudioManagerService {
       playing: false,
       readableCurrentTime: '',
       readableDuration: '',
-      duration: undefined,
-      currentTime: undefined,
+      duration: 0,
+      currentTime: 0,
       canplay: false,
       error: false
     };
