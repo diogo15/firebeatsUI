@@ -11,6 +11,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
 import { GameComponent } from './components/game/game.component';
+import { DragDirective } from './directives/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GameComponent } from './components/game/game.component';
     HomePageComponent,
     LoginPageComponent,
     SongUploadComponent,
-    GameComponent
+    GameComponent,
+    DragDirective
   ],
   imports: [
     BrowserModule,

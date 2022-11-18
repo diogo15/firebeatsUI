@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { SONG_API_URL } from '../../constants';
+import { DragDirective, FileHandle } from '../../directives/dropzone.directive';
 
 @Component({
   selector: 'app-song-upload',
@@ -11,37 +12,30 @@ import { SONG_API_URL } from '../../constants';
 
 export class SongUploadComponent implements OnInit {
 
-  form: FormGroup;
+  files: FileHandle[] = [];
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
-    this.form = this.fb.group({
-      name: [''],
-      file: [null],
-    });
-  }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void { }
 
-  uploadFile(event:any) {
-    const file = event.target.files[0];
-    this.form.patchValue({
-      file: file,
-    });
-    //this.form.get('file').updateValueAndValidity();
+
+  filesDropped(files: FileHandle[]): void {
+    this.files = files;
   }
 
-  submitForm() {
+  upload(): void {
     var formData: any = new FormData();
-    //var name = this.form.get('name');
-    var song = this.form.get('file');
-    //formData.append('name', name?name.value:"");
-    formData.append('file', song?song.value:"");
-    this.http 
-      .post(SONG_API_URL+'/FileUpload', formData)
-      .subscribe({
+    for (let i = 0; i < this.files.length; i++) {
+      
+      const file = this.files[i];
+      formData.append('file', file);
+
+      this.http.post(SONG_API_URL+'FileUpload', formData).subscribe({
         next: (response) => console.log(response),
         error: (error) => console.log(error),
       });
+
+    }
   }
 
 }
