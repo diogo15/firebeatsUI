@@ -1,4 +1,5 @@
 export const SONG_API_URL = "http://localhost:34250/api/";
+export const API_BASE_URL = "https://localhost:5205/api/"
 
 export class KEY {
     static readonly ESC : number = 27;
