@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { API_BASE_URL, SONG_API_URL } from '../../constants';
+import { SongsDataService } from 'src/app/services/songs/songs-data.service';
 
 @Component({
   selector: 'app-song-upload',
@@ -11,49 +12,38 @@ import { API_BASE_URL, SONG_API_URL } from '../../constants';
 
 export class SongUploadComponent implements OnInit {
 
+  formData : any = new FormData()
   form: FormGroup;
-  songFile : any = []
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
+  constructor(public fb: FormBuilder, private http: HttpClient, private songService : SongsDataService) { 
     this.form = this.fb.group({
-      name: [''],
-      file: [null],
-    });
+      name: '',
+      file: null,
+    })
   }
-
   ngOnInit(): void { }
 
   uploadFile(event : any) {
-    const file = event.target.files[0];
+    const file = event.target.files[0];  
     this.form.patchValue({
       file: file,
     });
 
-    var formData: any = new FormData();
-    //var name = this.form.get('name');
-    var song = this.form.get('file');
-    //formData.append('name', name?name.value:"");
-    formData.append('file', song?song.value:"");
-    this.http 
-      .post(SONG_API_URL+'FileUpload', formData)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      });
-    //this.form.get('file').updateValueAndValidity();
-    /*var path_response = this.http
-      .post(SONG_API_URL + 'Fileupload', file)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      })*/
+    var song = this.form.get('file')
+    this.formData.append('file', song ? song.value : "")
+    var path_response = this.songService.uploadSongFile(this.formData)
+
+    this.formData.append('name', this.form.get('name')?.value)
+    this.formData.append('file', path_response)
+
+    console.log(this.form.value)
   }
 
-  submitForm() {
-    const songFormData = new FormData()
-
-    this.http
-      .post(API_BASE_URL + 'songs', songFormData)
+  submitForm(form : FormGroup) {
+    if (form != null) { 
+      this.http.post(API_BASE_URL + 'songs', form.value)
       .subscribe(response => console.log(response))
+    }
+    console.log("Y la data ???")
   }
 }
