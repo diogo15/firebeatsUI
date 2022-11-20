@@ -1,10 +1,19 @@
 <div class="song-upload">
     <h2>Sube y Comparte tus canciones</h2>
-    <form [formGroup]="form" (ngSubmit)="submitForm(form.value)" enctype="multipart/form-data">
+    <form [formGroup]="songForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Song Name:</label>
+            <input type="text" name="name">
+        </div>
+
         <div class="form-group">
             <label class="file-box">
                 <input type="file" (change)="uploadFile($event)" formControllerName="file">
             </label>
+        </div>
+
+        <div class="form-group">
+            <p>Form status: {{ songForm.status }}</p>
         </div>
 
         <div class="form-group">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { API_BASE_URL, SONG_API_URL } from '../../constants';
+import { API_BASE_URL } from '../../constants';
 import { SongsDataService } from 'src/app/services/songs/songs-data.service';
 
 @Component({
@@ -13,36 +13,30 @@ import { SongsDataService } from 'src/app/services/songs/songs-data.service';
 export class SongUploadComponent implements OnInit {
 
   formData : any = new FormData()
-  form: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: HttpClient, private songService : SongsDataService) { 
-    this.form = this.fb.group({
-      name: '',
-      file: null,
-    })
-  }
+  songForm = this.fb.group({
+    name: [''],
+    file: ['', Validators.required],
+  })
+
+  constructor(public fb: FormBuilder, private http: HttpClient, private songService : SongsDataService) { }
+
   ngOnInit(): void { }
 
   uploadFile(event : any) {
-    const file = event.target.files[0];  
-    this.form.patchValue({
+    const file = event.target.files[0]
+    console.log(file)
+    this.songForm.patchValue({
       file: file,
     });
 
-    var song = this.form.get('file')
+    var song = this.songForm.get('file')
     this.formData.append('file', song ? song.value : "")
     var path_response = this.songService.uploadSongFile(this.formData)
-
-    this.formData.append('name', this.form.get('name')?.value)
-    this.formData.append('file', path_response)
-
-    console.log(this.form.value)
   }
 
-  submitForm(form : FormGroup) {
-    if (form != null) { 
-      this.http.post(API_BASE_URL + 'songs', form.value)
-      .subscribe(response => console.log(response))
+  submitForm() {
+    if (this.songForm != null) { 
     }
     console.log("Y la data ???")
   }
