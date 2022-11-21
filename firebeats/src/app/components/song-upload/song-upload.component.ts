@@ -15,8 +15,8 @@ export class SongUploadComponent implements OnInit {
   formData : any = new FormData()
 
   songForm = this.fb.group({
-    name: [''],
-    file: ['', Validators.required],
+    songname: '',
+    songPath: '',
   })
 
   constructor(public fb: FormBuilder, private http: HttpClient, private songService : SongsDataService) { }
@@ -25,19 +25,28 @@ export class SongUploadComponent implements OnInit {
 
   uploadFile(event : any) {
     const file = event.target.files[0]
-    console.log(file)
     this.songForm.patchValue({
-      file: file,
+      songPath: file,
     });
 
-    var song = this.songForm.get('file')
+    var song = this.songForm.get('songPath')
+    console.log(song?.value)
     this.formData.append('file', song ? song.value : "")
-    var path_response = this.songService.uploadSongFile(this.formData)
+    
+    this.songService.uploadSongFile(this.formData)
+      .subscribe(response => {
+        console.log(response)
+        this.songForm.patchValue({
+          songPath : response
+        })
+      })
   }
 
   submitForm() {
     if (this.songForm != null) { 
+      this.songService.submitSong(this.songForm.value)
+    } else {
+      console.log("Y la data ???")
     }
-    console.log("Y la data ???")
   }
 }
