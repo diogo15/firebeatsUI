@@ -11,6 +11,9 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
 import { GameComponent } from './components/game/game.component';
+import { PlaylistDisplayComponent } from './components/playlist-display/playlist-display.component';
+import { SongsDisplayComponent } from './components/songs-display/songs-display.component';
+import { SongsComponent } from './components/songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { GameComponent } from './components/game/game.component';
     HomePageComponent,
     LoginPageComponent,
     SongUploadComponent,
-    GameComponent
+    GameComponent,
+    PlaylistDisplayComponent,
+    SongsDisplayComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,

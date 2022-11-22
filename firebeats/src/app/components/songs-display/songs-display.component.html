@@ -1,0 +1,12 @@
+<div class="songs-glass">
+    <div class="songs-cards">
+        <h1>Songs</h1>
+        <div *ngFor="let song of songs" class="list-cards">
+            <ul class="song-group">
+                <li class="song-group-item">
+                    {{ song.songName }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
