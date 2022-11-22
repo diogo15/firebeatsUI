@@ -13,7 +13,6 @@ import { SongUploadComponent } from './components/song-upload/song-upload.compon
 import { GameComponent } from './components/game/game.component';
 import { PlaylistDisplayComponent } from './components/playlist-display/playlist-display.component';
 import { SongsDisplayComponent } from './components/songs-display/songs-display.component';
-import { SongsComponent } from './components/songs/songs.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { SongsComponent } from './components/songs/songs.component';
     GameComponent,
     PlaylistDisplayComponent,
     SongsDisplayComponent,
-    SongsComponent
   ],
   imports: [
     BrowserModule,

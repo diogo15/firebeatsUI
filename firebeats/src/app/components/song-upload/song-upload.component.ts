@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { API_BASE_URL } from '../../constants';
@@ -19,7 +19,9 @@ export class SongUploadComponent implements OnInit {
     songPath: '',
   })
 
-  constructor(public fb: FormBuilder, private http: HttpClient, private songService : SongsDataService) { }
+  constructor(
+    public fb: FormBuilder, 
+    private songService : SongsDataService) { }
 
   ngOnInit(): void { }
 
@@ -30,7 +32,6 @@ export class SongUploadComponent implements OnInit {
     });
 
     var song = this.songForm.get('songPath')
-    console.log(song?.value)
     this.formData.append('file', song ? song.value : "")
     
     this.songService.uploadSongFile(this.formData)
