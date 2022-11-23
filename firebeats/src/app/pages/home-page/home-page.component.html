@@ -1,8 +1,26 @@
 <div class="space-out">
     <app-playlist></app-playlist>
+
     <div class="songs-component">
-        <app-songs-display></app-songs-display>
-        <app-song-upload></app-song-upload>
+        <div class="tabber">
+            <ul class="tabs" role="tablist">
+                <li class="tab active" data-tab-target="#songs">
+                    Songs
+                </li>
+                <li class="tab" data-tab-target="#form">
+                    Upload
+                </li>
+            </ul>
+        </div>
+        <div class="songs-content">
+            <div id="songs" data-tab-content class="active">
+                <app-songs-display></app-songs-display>
+            </div>
+
+            <div id="form" data-tab-content>
+                <app-song-upload></app-song-upload>
+            </div>
+        </div>
     </div>
 </div>
 

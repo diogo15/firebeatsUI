@@ -1,12 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_BASE_URL, SONG_API_URL } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root'
 })
-export class SongsDataService {
-  
+export class ConsumerService {
+
   constructor(private _http : HttpClient) { }
 
   getSongs() {
@@ -16,6 +16,13 @@ export class SongsDataService {
     return songs_data
   }
 
+  getPlaylists() {
+    var playlists_data = this._http
+    .get<any>(API_BASE_URL + "playlist")
+
+    return playlists_data 
+  }
+  
   uploadSongFile(formData : FormData)
   {
     return this._http

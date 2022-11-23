@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PlaylistDataService } from 'src/app/services/playlist/playlist-data.service';
+import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 
 @Component({
   selector: 'app-playlist-display',
@@ -9,7 +9,7 @@ import { PlaylistDataService } from 'src/app/services/playlist/playlist-data.ser
 export class PlaylistDisplayComponent implements OnInit {
   lists : any
 
-  constructor(private playlists : PlaylistDataService) {}
+  constructor(private playlists : ConsumerService) {}
   
   ngOnInit() {
     this.playlists.getPlaylists().subscribe(respose => {
