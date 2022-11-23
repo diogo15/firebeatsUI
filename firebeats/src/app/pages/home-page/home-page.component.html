@@ -3,23 +3,20 @@
 
     <div class="songs-component">
         <div class="tabber">
-            <ul class="tabs" role="tablist">
-                <li class="tab active" data-tab-target="#songs">
+            <ul class="tabs" id="tabs">
+                <li class="tab active">
                     Songs
                 </li>
-                <li class="tab" data-tab-target="#form">
+                <li class="tab">
                     Upload
                 </li>
             </ul>
         </div>
-        <div class="songs-content">
-            <div id="songs" data-tab-content class="active">
-                <app-songs-display></app-songs-display>
-            </div>
 
-            <div id="form" data-tab-content>
-                <app-song-upload></app-song-upload>
-            </div>
+        <div class="songs-content">
+            <!--<app-songs-display class="active"></app-songs-display>--> 
+
+             <app-song-upload></app-song-upload>
         </div>
     </div>
 </div>
