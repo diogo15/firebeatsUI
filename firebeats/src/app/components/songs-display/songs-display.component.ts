@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SongsDataService } from 'src/app/services/songs/songs-data.service';
+import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
+
 
 @Component({
   selector: 'app-songs-display',
@@ -9,7 +10,7 @@ import { SongsDataService } from 'src/app/services/songs/songs-data.service';
 export class SongsDisplayComponent implements OnInit {
   songs : any
 
-  constructor(private songsJson : SongsDataService) { }
+  constructor(private songsJson : ConsumerService) { }
 
   ngOnInit() {
     this.songsJson.getSongs().subscribe(respose => {

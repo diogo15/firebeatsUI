@@ -1,8 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { API_BASE_URL } from '../../constants';
-import { SongsDataService } from 'src/app/services/songs/songs-data.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 
 @Component({
   selector: 'app-song-upload',
@@ -21,7 +19,7 @@ export class SongUploadComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder, 
-    private songService : SongsDataService) { }
+    private songService : ConsumerService) { }
 
   ngOnInit(): void { }
 
