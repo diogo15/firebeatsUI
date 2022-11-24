@@ -10,11 +10,15 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 export class SongsDisplayComponent implements OnInit {
   songs : any
 
-  constructor(private songsJson : ConsumerService) { }
+  constructor(private request : ConsumerService) { }
 
   ngOnInit() {
-    this.songsJson.getSongs().subscribe(respose => {
+    this.request.getSongs().subscribe(respose => {
       this.songs = respose
     })
+  }
+
+  addToList(song : any) {
+    this.request.addToYourPlaylists(song)
   }
 }

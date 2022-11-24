@@ -22,6 +22,14 @@ export class ConsumerService {
 
     return playlists_data 
   }
+
+  addToYourPlaylists(song : any) {
+    const HTTPOPTIONS = {'Content-Type' : 'application/json'}
+    const BODY = JSON.stringify(song)
+    console.log(BODY)
+    this._http.post(API_BASE_URL + 'playlist', BODY, { headers : HTTPOPTIONS })
+      .subscribe(response => console.log(response))
+  }
   
   uploadSongFile(formData : FormData)
   {

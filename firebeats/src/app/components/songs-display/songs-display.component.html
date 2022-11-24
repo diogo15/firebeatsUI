@@ -3,18 +3,33 @@
         <h2>Canciones</h2>
     </div>
 
-    <div class="songs-cards">
-        <ul class="list-cards" *ngFor="let song of songs">
-            <div class="play">
-                <svg class="icon play" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="white">
-                    <path
-                        d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z" />
-                </svg>
+
+    <ul class="list-cards">
+        <div class="card" *ngFor="let song of songs">
+            <div class="play-button">
+                <button class="play">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M512 256c0 141.4-114.6 256-256 256S0 397.4 0 256S114.6 0 256 0S512 114.6 512 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z" />
+                    </svg>
+                </button>
             </div>
+
             <li class="song-group-item">
-                {{ song.songName }}
+                <p>{{ song.songName }}</p>
             </li>
-        </ul>
-        <br>
-    </div>
+
+            <div class="add-button">
+                <button class="button" (click)="addToList(song)">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </ul>
+    <br>
 </div>
