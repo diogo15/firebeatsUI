@@ -4,19 +4,19 @@
     <div class="songs-component">
         <div class="tabber">
             <ul class="tabs" id="tabs">
-                <li class="tab active">
+                <li class="tab" (click)="onClickTab('Songs')" [class.active]="activeTab == 'Songs'">
                     Songs
                 </li>
-                <li class="tab">
+                <li class="tab" (click)="onClickTab('Upload')" [class.active]="activeTab == 'Upload'">
                     Upload
                 </li>
             </ul>
         </div>
 
         <div class="songs-content">
-            <!--<app-songs-display class="active"></app-songs-display>--> 
+            <app-songs-display *ngIf="activeTab == 'Songs'"></app-songs-display>
 
-             <app-song-upload></app-song-upload>
+            <app-song-upload *ngIf="activeTab == 'Upload'"></app-song-upload>
         </div>
     </div>
 </div>

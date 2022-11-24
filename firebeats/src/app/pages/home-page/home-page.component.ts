@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
+  activeTab : string = 'Songs'
   constructor() { }
 
   ngOnInit(): void {
-    let tabs = document.getElementById('tabs')
     var tabsItems = document.getElementsByClassName('tab')
 
     for (let i = 0; i < tabsItems.length; i++) {
@@ -21,8 +21,10 @@ export class HomePageComponent implements OnInit {
 
         tabsItems[i].className += ' active'
       })
-      
     }
   }
 
+  onClickTab(tab : string) {
+    this.activeTab = tab
+  }
 }
