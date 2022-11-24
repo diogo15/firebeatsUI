@@ -1,9 +1,12 @@
 <div class="song-upload">
-    <h2>Sube y Comparte tus canciones</h2>
+    <div class="form-title">
+        <h2>Subí tus canciones</h2>
+    </div>
+    
     <form [formGroup]="songForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
         <div class="form-group">
-            <label for="songname">Song Name:</label>
-            <input type="text" id="songname" formControlName="songname" placeholder="Nombre de la Canción">
+            <label for="songname">Nombre Canción:</label>
+            <input type="text" id="songname" formControlName="songname" placeholder="Nombre de la canción">
         </div>
 
         <div class="form-group">
