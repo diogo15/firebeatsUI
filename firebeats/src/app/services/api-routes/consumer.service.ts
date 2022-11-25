@@ -7,6 +7,8 @@ import { API_BASE_URL, SONG_API_URL } from 'src/app/constants';
 })
 export class ConsumerService {
 
+  HTTPOPTIONS = {'Content-Type' : 'application/json'}
+
   constructor(private _http : HttpClient) { }
 
   getSongs() {
@@ -22,6 +24,13 @@ export class ConsumerService {
 
     return playlists_data 
   }
+
+  addToYourPlaylists(song : any) {
+    const BODY = JSON.stringify(song)
+
+    this._http.post(API_BASE_URL + 'playlist', BODY, { headers : this.HTTPOPTIONS })
+      .subscribe(response => console.log(response))
+  }
   
   uploadSongFile(formData : FormData)
   {
@@ -31,12 +40,10 @@ export class ConsumerService {
 
   submitSong(song : any)
   {
-    const HTTPOPTIONS = {'Content-Type' : 'application/json'}
     const BODY = JSON.stringify(song)
-    console.log(BODY)
     
     return this._http
-      .post(API_BASE_URL + 'songs', BODY, { headers : HTTPOPTIONS })
+      .post(API_BASE_URL + 'songs', BODY, { headers : this.HTTPOPTIONS })
       .subscribe(response => {
         console.log(response)
       })
