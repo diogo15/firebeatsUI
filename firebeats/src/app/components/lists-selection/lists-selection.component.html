@@ -1,0 +1,3 @@
+<select name="selectedOption" [(ngModel)]="selectedOption">
+    <option *ngFor="let list of lists" [ngValue]="list">{{ list.playlistName }}</option>
+</select>
