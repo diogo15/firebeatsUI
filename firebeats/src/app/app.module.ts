@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MusicPlayerComponent } from './components/music-player/music-player.component';
-import { PlaylistComponent } from './components/playlist/playlist.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
@@ -31,7 +29,6 @@ import { MatInputModule }  from '@angular/material/input';
   declarations: [
     AppComponent,
     MusicPlayerComponent,
-    PlaylistComponent,
     HomePageComponent,
     LoginPageComponent,
     SongUploadComponent,
@@ -49,7 +46,6 @@ import { MatInputModule }  from '@angular/material/input';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
     HttpClientModule,
     NoopAnimationsModule,
     MatToolbarModule,
