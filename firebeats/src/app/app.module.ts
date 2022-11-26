@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // Componentes
@@ -10,6 +11,10 @@ import { PlaylistComponent } from './components/playlist/playlist.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
+import { GameComponent } from './components/game/game.component';
+import { PlaylistDisplayComponent } from './components/playlist-display/playlist-display.component';
+import { SongsDisplayComponent } from './components/songs-display/songs-display.component';
+import { ListsSelectionComponent } from './components/lists-selection/lists-selection.component';
 //Angular material library
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -30,6 +35,10 @@ import { MatInputModule }  from '@angular/material/input';
     HomePageComponent,
     LoginPageComponent,
     SongUploadComponent,
+    GameComponent,
+    PlaylistDisplayComponent,
+    SongsDisplayComponent,
+    ListsSelectionComponent,
     ButtonComponent,
     IndexComponent,
     HeaderComponent,
@@ -37,8 +46,10 @@ import { MatInputModule }  from '@angular/material/input';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule
     HttpClientModule,
     NoopAnimationsModule,
     MatToolbarModule,
