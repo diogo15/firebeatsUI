@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MusicPlayerComponent } from './components/music-player/music-player.component';
-import { PlaylistComponent } from './components/playlist/playlist.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SongUploadComponent } from './components/song-upload/song-upload.component';
@@ -19,7 +18,6 @@ import { ListsSelectionComponent } from './components/lists-selection/lists-sele
   declarations: [
     AppComponent,
     MusicPlayerComponent,
-    PlaylistComponent,
     HomePageComponent,
     LoginPageComponent,
     SongUploadComponent,
