@@ -7,7 +7,9 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
   styleUrls: ['./playlist-display.component.sass']
 })
 export class PlaylistDisplayComponent implements OnInit {
+
   lists : any
+  activeTab : string = 'Lists'
 
   constructor(private playlists : ConsumerService) {}
   
@@ -15,5 +17,9 @@ export class PlaylistDisplayComponent implements OnInit {
     this.playlists.getPlaylists().subscribe(respose => {
       this.lists = respose
     })
+  }
+
+  onClickTab(tab : string) {
+    this.activeTab = tab
   }
 }
