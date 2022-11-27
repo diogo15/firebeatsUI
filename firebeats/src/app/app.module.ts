@@ -15,10 +15,11 @@ import { SongsDisplayComponent } from './components/songs-display/songs-display.
 import { ListsSelectionComponent } from './components/lists-selection/lists-selection.component';
 //Angular material library
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ButtonComponent } from './components/button/button.component';
 import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -43,6 +44,7 @@ import { MatInputModule }  from '@angular/material/input';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -55,6 +57,7 @@ import { MatInputModule }  from '@angular/material/input';
     MatSnackBarModule,
     MatSnackBarModule,
     MatInputModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
