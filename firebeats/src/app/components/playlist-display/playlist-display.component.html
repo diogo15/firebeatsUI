@@ -1,4 +1,7 @@
 <div class="playlist-component">
+    <div class="songs-list" [class.opened]="activeList == true">
+        <app-songs-from-playlist [activeList]="activeList" [list]="list"></app-songs-from-playlist>
+    </div>
     <div class="container">
         <div class="tabber">
             <div class="tabs">
@@ -39,7 +42,7 @@
                         <li>
                             <p>{{ list.playlistName }}</p>
 
-                            <div class="many-songs">
+                            <div class="many-songs" (click)="onListSongs(list.id)">
                                 <div>
                                     <p>{{ list.songs.length }}</p>
                                 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 
 @Component({
@@ -6,10 +6,13 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
   templateUrl: './playlist-display.component.html',
   styleUrls: ['./playlist-display.component.sass']
 })
+
 export class PlaylistDisplayComponent implements OnInit {
 
   lists : any
+  list : any
   activeTab : string = 'Lists'
+  activeList : boolean = false
 
   constructor(private playlists : ConsumerService) {}
   
@@ -21,5 +24,15 @@ export class PlaylistDisplayComponent implements OnInit {
 
   onClickTab(tab : string) {
     this.activeTab = tab
+  }
+
+  onListSongs(list : any) {
+    if (this.activeList) this.activeList = false 
+    else {
+      this.activeList = true
+      this.list = list
+    }
+
+    console.log(this.activeList)
   }
 }
