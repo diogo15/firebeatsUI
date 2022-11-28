@@ -1,9 +1,11 @@
-<p>songs-from-playlist works!</p>
-
-<div>
-    <ul>
-        <li *ngFor="let song of songs">
-            <p>{{ songs.songname }}</p>
-        </li>
-    </ul>
+<div class="songslist-display">
+    <div class="songslist-container">
+        <ul>
+            <div class="songslist-grid">
+                <li *ngFor="let songs of songsFromList">
+                    <p>{{ songs.songName }}</p>
+                </li>
+            </div>
+        </ul>
+    </div>
 </div>

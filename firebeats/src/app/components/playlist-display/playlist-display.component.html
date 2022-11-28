@@ -1,7 +1,8 @@
 <div class="playlist-component">
     <div class="songs-list" [class.opened]="activeList == true">
-        <app-songs-from-playlist [activeList]="activeList" [list]="list"></app-songs-from-playlist>
+        <app-songs-from-playlist *ngIf="activeList == true" [listParam]="list" [active]="activeList"></app-songs-from-playlist>
     </div>
+
     <div class="container">
         <div class="tabber">
             <div class="tabs">

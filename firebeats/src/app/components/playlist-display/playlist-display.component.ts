@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 
 @Component({
@@ -17,22 +17,21 @@ export class PlaylistDisplayComponent implements OnInit {
   constructor(private playlists : ConsumerService) {}
   
   ngOnInit() {
-    this.playlists.getPlaylists().subscribe(respose => {
-      this.lists = respose
-    })
+    this.playlists.getPlaylists()
+      .subscribe(respose => {
+        this.lists = respose
+      })
   }
 
   onClickTab(tab : string) {
     this.activeTab = tab
   }
 
-  onListSongs(list : any) {
+  onListSongs(listId : any) {
     if (this.activeList) this.activeList = false 
     else {
       this.activeList = true
-      this.list = list
+      this.list = listId
     }
-
-    console.log(this.activeList)
   }
 }

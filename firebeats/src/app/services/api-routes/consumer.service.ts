@@ -25,9 +25,9 @@ export class ConsumerService {
     return playlists_data 
   }
 
-  getPlaylist(list : any) {
+  getPlaylist(listParam : any) {
     return this._http
-      .get<any>(API_BASE_URL + `playlist/${list}`)
+      .get<any>(API_BASE_URL + `playlist/${listParam}`)
   }
 
   addToYourPlaylists(song : any) {

@@ -8,25 +8,21 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 })
 export class SongsFromPlaylistComponent implements OnInit {
 
-  @Input() list! : any
-  @Input() activeList! : any
+  @Input() listParam : any
+  @Input() active : boolean = false
 
-  songs : any
+  songsFromList : any
 
   constructor(private consumer : ConsumerService) { }
 
   ngOnInit(): void {
-    console.log(this.list)
-    console.log(this.activeList)
+    if(this.active) this.loadList()
   }
 
-  loadList() : void {
-    if (this.activeList) {
-      this.consumer.getPlaylist(this.list)
-        .subscribe(response =>{
-          this.songs = response
-          console.log(this.songs)
-        })
-    } else console.log("Oi!")
+  loadList() {
+    this.consumer.getPlaylist(this.listParam)
+      .subscribe(response => {
+        this.songsFromList = response.songs
+      })
   }
 }
