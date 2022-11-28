@@ -11,18 +11,22 @@ export class SongsFromPlaylistComponent implements OnInit {
   @Input() listParam : any
   @Input() active : boolean = false
 
+  listName : any
   songsFromList : any
 
   constructor(private consumer : ConsumerService) { }
 
   ngOnInit(): void {
-    if(this.active) this.loadList()
+    if(this.active) {
+      this.loadList()
+    } 
   }
 
   loadList() {
     this.consumer.getPlaylist(this.listParam)
       .subscribe(response => {
         this.songsFromList = response.songs
+        this.listName = response.playlistName
       })
   }
 }
