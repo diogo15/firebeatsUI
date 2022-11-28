@@ -21,7 +21,8 @@ import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule }  from '@angular/material/input';
-
+import { MatIconModule } from '@angular/material/icon';
+import { HeadsetComponent } from './components/headset/headset.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { MatInputModule }  from '@angular/material/input';
     ButtonComponent,
     IndexComponent,
     HeaderComponent,
+    HeadsetComponent,
     
   ],
   imports: [
@@ -48,6 +50,8 @@ import { MatInputModule }  from '@angular/material/input';
     MatSnackBarModule,
     MatSnackBarModule,
     MatInputModule,
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
