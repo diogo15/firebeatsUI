@@ -25,7 +25,11 @@ import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule }  from '@angular/material/input';
+
+import { MatIconModule } from '@angular/material/icon';
+import { HeadsetComponent } from './components/headset/headset.component';
 import { SongsFromPlaylistComponent } from './components/songs-from-playlist/songs-from-playlist.component';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +45,8 @@ import { SongsFromPlaylistComponent } from './components/songs-from-playlist/son
     ButtonComponent,
     IndexComponent,
     HeaderComponent,
+    HeadsetComponent,
     SongsFromPlaylistComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { SongsFromPlaylistComponent } from './components/songs-from-playlist/son
     MatSnackBarModule,
     MatSnackBarModule,
     MatInputModule,
+    MatIconModule,
     MatTabsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
