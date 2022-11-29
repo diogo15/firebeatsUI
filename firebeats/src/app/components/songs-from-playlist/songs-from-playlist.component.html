@@ -1,0 +1,15 @@
+<div class="songslist-display">
+    <div class="title">
+        <h3>{{ listName }}</h3>
+    </div>
+
+    <div class="songslist-container">
+        <ul>
+            <div class="songslist-grid">
+                <li *ngFor="let songs of songsFromList">
+                    <p>{{ songs.songName }}</p>
+                </li>
+            </div>
+        </ul>
+    </div>
+</div>

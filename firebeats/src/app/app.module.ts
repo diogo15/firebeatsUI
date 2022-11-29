@@ -25,6 +25,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule }  from '@angular/material/input';
+import { SongsFromPlaylistComponent } from './components/songs-from-playlist/songs-from-playlist.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MatInputModule }  from '@angular/material/input';
     ButtonComponent,
     IndexComponent,
     HeaderComponent,
+    SongsFromPlaylistComponent,
     
   ],
   imports: [
