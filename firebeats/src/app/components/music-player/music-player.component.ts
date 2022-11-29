@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AudioManagerService } from "../../services/audio-manager.service";
+import { AudioStream } from "../../interfaces/audio-stream";
+
 
 @Component({
   selector: 'app-music-player',
@@ -7,12 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicPlayerComponent implements OnInit {
   
-  isPlaying : boolean = false;
+  state: AudioStream = {} as AudioStream;
+  currentFile: any = {};
 
-  constructor() {
+  constructor(public audioService:AudioManagerService) {
+    this.audioService.getState().subscribe(state => {
+      this.state = state;
+    });
+  }  
+
+  streamAudio(url:string) {
+    if(this.state.currentTime<=0){
+      this.audioService.playStream(url).subscribe(events => {});
+    }else{
+      this.audioService.play();
+    }
+  }
+
+  stopAudio() {
+    this.audioService.pause();
   }
   
   ngOnInit(): void {
+    
   }
 
 }

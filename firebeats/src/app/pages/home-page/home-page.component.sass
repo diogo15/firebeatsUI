@@ -1,3 +1,68 @@
 .logo
     width: 250px
     margin: 30px
+
+.game-container
+    position: absolute
+    width: 100%
+    top: 50%
+    left: 0
+    right: 0
+    transform: translate(0,-50%)
+    z-index: -1
+
+.space-out
+    display: flex
+    justify-content: space-between
+
+.songs-component
+    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
+    width: 300px
+    max-width: 350px
+    height: auto
+    margin-right: 30px
+    padding: 20px
+    border-radius: 10px
+    font-size: 15px
+    box-shadow: 10px 10px 30px -7px rgb(0 0 0 / 54%)
+    transition: 0.5s all
+
+.tabber
+    background-color: rgba(248, 247, 216, 0.7)
+    border-radius: 20px
+    padding: 5px 20px
+    box-shadow: 10px 10px 30px -7px rgb(0 0 0 / 54%)
+
+.tabs
+    display: flex
+    justify-content: space-evenly
+    margin: 0
+    padding: 0
+
+.tabs .tab
+    padding: 5px
+    background-color: rgba(248, 247, 216, 0.7)
+    margin: 0
+    border-radius: 20px
+    list-style: none
+    padding: 5px 20px
+
+.tab:hover
+    color: white
+    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
+    cursor: pointer
+
+.tab.active
+    color: white
+    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
+
+.songs-content
+    max-width: 350px
+    height: auto
+    background-color: rgba(248, 247, 216, 0.7)
+    border-radius: 5px
+    box-shadow: 10px 10px 30px -7px rgba(0,0,0,0.54)
+
+.songs-content.active
+    display: block
+    transition: 0.5s all

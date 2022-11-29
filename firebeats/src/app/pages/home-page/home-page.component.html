@@ -1,6 +1,28 @@
+<div class="space-out">
+    <app-playlist-display></app-playlist-display>
 
-<app-playlist></app-playlist>
+    <div class="songs-component">
+        <div class="tabber">
+            <ul class="tabs" id="tabs">
+                <li class="tab" (click)="onClickTab('Songs')" [class.active]="activeTab == 'Songs'">
+                    Songs
+                </li>
+                <li class="tab" (click)="onClickTab('Upload')" [class.active]="activeTab == 'Upload'">
+                    Upload
+                </li>
+            </ul>
+        </div>
+
+        <div class="songs-content">
+            <app-songs-display *ngIf="activeTab == 'Songs'"></app-songs-display>
+
+            <app-song-upload *ngIf="activeTab == 'Upload'"></app-song-upload>
+        </div>
+    </div>
+</div>
 
 <app-music-player></app-music-player>
 
-<app-song-upload></app-song-upload>
+<div class="game-container">
+    <app-game></app-game>
+</div>
