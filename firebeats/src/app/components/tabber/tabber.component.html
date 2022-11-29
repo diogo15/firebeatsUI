@@ -1,0 +1,11 @@
+<div class="songs-component">
+    <div class="tabber">
+        <ul class="tabs">
+            <li class="tab" *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="tab.active">
+                <a>{{ tab.title }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <ng-content></ng-content>
+</div>

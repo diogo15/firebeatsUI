@@ -29,6 +29,8 @@ import { MatInputModule }  from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { HeadsetComponent } from './components/headset/headset.component';
 import { SongsFromPlaylistComponent } from './components/songs-from-playlist/songs-from-playlist.component';
+import { TabberComponent } from './components/tabber/tabber.component';
+import { TabComponent } from './components/tab/tab.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { SongsFromPlaylistComponent } from './components/songs-from-playlist/son
     HeaderComponent,
     HeadsetComponent,
     SongsFromPlaylistComponent,
+    TabberComponent,
+    TabComponent,
   ],
   imports: [
     BrowserModule,
