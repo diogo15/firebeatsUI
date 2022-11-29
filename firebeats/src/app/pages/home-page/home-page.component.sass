@@ -23,8 +23,9 @@
     margin-right: 30px
     padding: 20px
     border-radius: 10px
-    font-size: 15px    
+    font-size: 15px
     box-shadow: 10px 10px 30px -7px rgb(0 0 0 / 54%)
+    transition: 0.5s all
 
 .tabber
     background-color: rgba(248, 247, 216, 0.7)
@@ -51,7 +52,7 @@
     background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
     cursor: pointer
 
-.active
+.tab.active
     color: white
     background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
 
@@ -61,3 +62,7 @@
     background-color: rgba(248, 247, 216, 0.7)
     border-radius: 5px
     box-shadow: 10px 10px 30px -7px rgba(0,0,0,0.54)
+
+.songs-content.active
+    display: block
+    transition: 0.5s all

@@ -25,6 +25,11 @@ export class ConsumerService {
     return playlists_data 
   }
 
+  getPlaylist(listParam : any) {
+    return this._http
+      .get<any>(API_BASE_URL + `playlist/${listParam}`)
+  }
+
   addToYourPlaylists(song : any) {
     const BODY = JSON.stringify(song)
 
