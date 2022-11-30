@@ -1,24 +1,15 @@
 <div class="space-out">
+    <!-- Falta de aplicarle el tabber y arreglar estilos -->
     <app-playlist-display></app-playlist-display>
 
-    <div class="songs-component">
-        <div class="tabber">
-            <ul class="tabs" id="tabs">
-                <li class="tab" (click)="onClickTab('Songs')" [class.active]="activeTab == 'Songs'">
-                    Songs
-                </li>
-                <li class="tab" (click)="onClickTab('Upload')" [class.active]="activeTab == 'Upload'">
-                    Upload
-                </li>
-            </ul>
-        </div>
-
-        <div class="songs-content">
-            <app-songs-display *ngIf="activeTab == 'Songs'"></app-songs-display>
-
-            <app-song-upload *ngIf="activeTab == 'Upload'"></app-song-upload>
-        </div>
-    </div>
+    <app-tabber class="songs-component">
+        <app-tab [tabTitle]="'Songs'">
+            <app-songs-display></app-songs-display>
+        </app-tab>
+        <app-tab [tabTitle]="'Upload'">
+            <app-song-upload></app-song-upload>
+        </app-tab>
+    </app-tabber>
 </div>
 
 <app-music-player></app-music-player>

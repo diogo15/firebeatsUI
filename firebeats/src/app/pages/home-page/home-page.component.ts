@@ -7,14 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.sass']
 })
 export class HomePageComponent implements OnInit {
-
-  activeTab : string = 'Songs'
+  
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onClickTab(tab : string) {
-    this.activeTab = tab
   }
 }
