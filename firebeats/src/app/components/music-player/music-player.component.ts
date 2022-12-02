@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AudioManagerService } from "../../services/audio-manager.service";
 import { AudioStream } from "../../interfaces/audio-stream";
+import { PLAYER } from 'src/app/constants';
 
 
 @Component({
@@ -9,7 +10,9 @@ import { AudioStream } from "../../interfaces/audio-stream";
   styleUrls: ['./music-player.component.sass']
 })
 export class MusicPlayerComponent implements OnInit {
-  
+
+  @Input('songPath') path : string = ''
+
   state: AudioStream = {} as AudioStream;
   currentFile: any = {};
 
@@ -21,7 +24,7 @@ export class MusicPlayerComponent implements OnInit {
 
   streamAudio(url:string) {
     if(this.state.currentTime<=0){
-      this.audioService.playStream(url).subscribe(events => {});
+      this.audioService.playStream(PLAYER + url).subscribe(events => {});
     }else{
       this.audioService.play();
     }

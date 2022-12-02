@@ -12,7 +12,7 @@ export class SongsFromPlaylistComponent implements OnInit {
   @Input() active : boolean = false
 
   listName : any
-  songsFromList : any
+  songObject : any
 
   constructor(private consumer : ConsumerService) { }
 
@@ -25,7 +25,7 @@ export class SongsFromPlaylistComponent implements OnInit {
   loadList() {
     this.consumer.getPlaylist(this.listParam)
       .subscribe(response => {
-        this.songsFromList = response.songs
+        this.songObject = response.songs
         this.listName = response.playlistName
       })
   }

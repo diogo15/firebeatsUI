@@ -49,8 +49,6 @@ export class ConsumerService {
     
     return this._http
       .post(API_BASE_URL + 'songs', BODY, { headers : this.HTTPOPTIONS })
-      .subscribe(response => {
-        console.log(response)
-      })
+      .subscribe(response => {})
   }
 }

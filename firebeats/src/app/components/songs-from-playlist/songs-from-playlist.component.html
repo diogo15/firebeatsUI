@@ -6,8 +6,12 @@
     <div class="songslist-container">
         <ul>
             <div class="songslist-grid">
-                <li *ngFor="let songs of songsFromList">
-                    <p>{{ songs.songName }}</p>
+                <li class="songslist-card" *ngFor="let songs of songObject">
+                    <h5>{{ songs.songName }}</h5>
+                    
+                    <div class="songslist-player">
+                        <app-music-player [songPath]="songs.songPath"></app-music-player>
+                    </div>
                 </li>
             </div>
         </ul>
