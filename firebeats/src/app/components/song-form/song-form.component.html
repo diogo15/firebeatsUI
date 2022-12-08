@@ -1,0 +1,13 @@
+<form class="form-song" [formGroup]="songFormPlaylist" (ngSubmit)="updateSong()">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Playlist preferred</mat-label>
+    <mat-select formControlName="playlistId" ng-model="list.id == playlistId">
+      <mat-option *ngFor="let list of lists" [value]="list.id">
+        {{list.playlistName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button>Agregar Cancion</button>
+</form>

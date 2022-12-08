@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 
@@ -8,7 +8,7 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
   styleUrls: ['./song-upload.component.sass']
 })
 
-export class SongUploadComponent implements OnInit {
+export class SongUploadComponent implements OnInit, OnDestroy {
 
   formData : any = new FormData()
 
@@ -22,6 +22,10 @@ export class SongUploadComponent implements OnInit {
     private songService : ConsumerService) { }
 
   ngOnInit(): void { }
+
+  ngOnDestroy(): void {
+    
+  }
 
   uploadFile(event : any) {
     const file = event.target.files[0]

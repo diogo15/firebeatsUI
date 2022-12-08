@@ -12,7 +12,6 @@ import { SongUploadComponent } from './components/song-upload/song-upload.compon
 import { GameComponent } from './components/game/game.component';
 import { PlaylistDisplayComponent } from './components/playlist-display/playlist-display.component';
 import { SongsDisplayComponent } from './components/songs-display/songs-display.component';
-import { ListsSelectionComponent } from './components/lists-selection/lists-selection.component';
 //Angular material library
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,12 +24,15 @@ import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule }  from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { MatIconModule } from '@angular/material/icon';
 import { HeadsetComponent } from './components/headset/headset.component';
 import { SongsFromPlaylistComponent } from './components/songs-from-playlist/songs-from-playlist.component';
 import { TabberComponent } from './components/tabber/tabber.component';
 import { TabComponent } from './components/tab/tab.component';
+import { SongFormComponent } from './components/song-form/song-form.component';
 
 
 @NgModule({
@@ -43,7 +45,6 @@ import { TabComponent } from './components/tab/tab.component';
     GameComponent,
     PlaylistDisplayComponent,
     SongsDisplayComponent,
-    ListsSelectionComponent,
     ButtonComponent,
     IndexComponent,
     HeaderComponent,
@@ -51,6 +52,7 @@ import { TabComponent } from './components/tab/tab.component';
     SongsFromPlaylistComponent,
     TabberComponent,
     TabComponent,
+    SongFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { TabComponent } from './components/tab/tab.component';
     MatInputModule,
     MatIconModule,
     MatTabsModule,
-
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

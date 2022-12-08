@@ -16,12 +16,29 @@
     padding: 0
     margin: 0
 
-.songslist-grid
-    display: grid
-    grid-template-columns: auto auto
-    gap: 5px
-    grid-auto-rows: auto
-    padding: 5px
+.songslist-scroll
+    overflow-y: hidden
+    overflow: auto
+    scroll-behavior: smooth
+    max-height: 350px
+
+/* width */
+.songslist-scroll::-webkit-scrollbar
+    width: 4.5px
+    border-radius: 15px
+
+/* Track */
+.songslist-scroll::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px rgba(66, 59, 59, 0.6)
+
+/* Handle */
+.songslist-scroll::-webkit-scrollbar-thumb
+    background: #f1f1f1
+    border-radius: 25px
+
+/* Handle on hover */
+.songslist-scroll::-webkit-scrollbar-thumb:hover
+    background: #505050
 
 .songslist-card
     position: relative
