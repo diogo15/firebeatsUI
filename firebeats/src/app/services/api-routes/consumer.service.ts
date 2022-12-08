@@ -6,51 +6,54 @@ import { API_BASE_URL, SONG_API_URL } from 'src/app/constants';
   providedIn: 'root'
 })
 export class ConsumerService {
-
+  
   HTTPOPTIONS = {'Content-Type' : 'application/json'}
 
   constructor(private _http : HttpClient) { }
-
+  // Get all data from entity
+  getAlbums() {
+    return this._http.get(API_BASE_URL + 'album')
+  }
+  
   getSongs() {
-    var songs_data = this._http
-      .get(API_BASE_URL + 'songs')
+    return this._http.get(API_BASE_URL + 'songs')
+  }
 
-    return songs_data
+  getGenres() {
+    return this._http.get(API_BASE_URL + 'genre')
   }
 
   getPlaylists() {
-    var playlists_data = this._http
-    .get<any>(API_BASE_URL + "playlist")
+    return this._http.get(API_BASE_URL + 'playlist')
+  }
 
-    return playlists_data 
+  // Get data from a specific entity
+  getSong(id : any) {
+    return this._http.get<any>(API_BASE_URL + `songs/${id}`)
   }
 
   getPlaylist(listParam : any) {
-    return this._http
-      .get<any>(API_BASE_URL + `playlist/${listParam}`)
+    return this._http.get<any>(API_BASE_URL + `playlist/${listParam}`)
   }
 
-  addToYourPlaylists(song : any) {
-    const BODY = JSON.stringify(song)
-
-    this._http.post(API_BASE_URL + 'playlist', BODY, { headers : this.HTTPOPTIONS })
+  // Update entity
+  updateSongToList(id : any, playlist : any) {
+    return this._http.put<any>(API_BASE_URL + `songs/${id}`, this.stringifyBody(playlist), { headers : this.HTTPOPTIONS })
       .subscribe(response => console.log(response))
   }
   
-  uploadSongFile(formData : FormData)
-  {
+  uploadSongFile(formData : FormData) {
     return this._http
       .post(SONG_API_URL + 'Fileupload', formData, { responseType : 'text' })
   }
 
-  submitSong(song : any)
-  {
-    const BODY = JSON.stringify(song)
-    
+  submitSong(song : any) {
     return this._http
-      .post(API_BASE_URL + 'songs', BODY, { headers : this.HTTPOPTIONS })
-      .subscribe(response => {
-        console.log(response)
-      })
+      .post(API_BASE_URL + 'songs', this.stringifyBody(song), { headers : this.HTTPOPTIONS })
+      .subscribe(response => {})
+  }
+
+  private stringifyBody(object : any) {
+    return JSON.stringify(object)
   }
 }
