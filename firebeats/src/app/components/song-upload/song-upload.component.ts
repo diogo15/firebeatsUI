@@ -47,7 +47,7 @@ export class SongUploadComponent implements OnInit, OnDestroy {
 
   submitForm() {
     if (this.songForm != null) { 
-      this.songService.submitSong(this.songForm.value)
+      this.songService.submitSong(this.songForm.value).subscribe(response => {})
     } else {
       console.log("Y la data ???")
     }

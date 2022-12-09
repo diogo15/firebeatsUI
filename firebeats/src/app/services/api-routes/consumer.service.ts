@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, Subject, tap } from 'rxjs';
 import { API_BASE_URL, SONG_API_URL } from 'src/app/constants';
 
 @Injectable({
@@ -9,13 +10,19 @@ export class ConsumerService {
   
   HTTPOPTIONS = {'Content-Type' : 'application/json'}
 
+  private _refreshRequired = new Subject<void>()
+
+  get RefreshRequired() {
+    return this._refreshRequired;
+  }
+
   constructor(private _http : HttpClient) { }
   // Get all data from entity
   getAlbums() {
     return this._http.get(API_BASE_URL + 'album')
   }
   
-  getSongs() {
+  getSongs() : Observable<object> {
     return this._http.get(API_BASE_URL + 'songs')
   }
 
@@ -23,7 +30,7 @@ export class ConsumerService {
     return this._http.get(API_BASE_URL + 'genre')
   }
 
-  getPlaylists() {
+  getPlaylists() : Observable<object> {
     return this._http.get(API_BASE_URL + 'playlist')
   }
 
@@ -38,8 +45,13 @@ export class ConsumerService {
 
   // Update entity
   updateSongToList(id : any, playlist : any) {
-    return this._http.put<any>(API_BASE_URL + `songs/${id}`, this.stringifyBody(playlist), { headers : this.HTTPOPTIONS })
-      .subscribe(response => console.log(response))
+    return this._http
+    .put(API_BASE_URL + `songs/${id}`, this.stringifyBody(playlist), { headers : this.HTTPOPTIONS })
+    .pipe(
+      tap(() => {
+        this.RefreshRequired.next()
+      })
+    )
   }
   
   uploadSongFile(formData : FormData) {
@@ -50,7 +62,11 @@ export class ConsumerService {
   submitSong(song : any) {
     return this._http
       .post(API_BASE_URL + 'songs', this.stringifyBody(song), { headers : this.HTTPOPTIONS })
-      .subscribe(response => {})
+      .pipe(
+        tap(() => {
+          this.RefreshRequired.next()
+        })
+      )
   }
 
   private stringifyBody(object : any) {

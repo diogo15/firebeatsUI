@@ -14,14 +14,19 @@ export class SongsDisplayComponent implements OnInit {
   openForm : boolean = false
 
 
-  constructor(private request : ConsumerService) {
-    this.request.getSongs().subscribe(respose => {
-      this.songs = respose
+  constructor(private consumer : ConsumerService) {}
+
+  ngOnInit() {
+    this.loadSongs()
+    this.consumer.RefreshRequired.subscribe(response => {
+      this.loadSongs()
     })
   }
 
-  ngOnInit() {
-    
+  loadSongs () {
+    this.consumer.getSongs().subscribe(respose => {
+      this.songs = respose
+    })
   }
 
   sendSong(songObject : any) {

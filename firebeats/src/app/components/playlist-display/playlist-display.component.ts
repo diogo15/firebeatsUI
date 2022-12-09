@@ -14,10 +14,17 @@ export class PlaylistDisplayComponent implements OnInit {
   activeTab : string = 'Lists'
   activeList : boolean = false
 
-  constructor(private playlists : ConsumerService) {}
+  constructor(private consumer : ConsumerService) {}
   
   ngOnInit() {
-    this.playlists.getPlaylists()
+    this.loadLists()
+    this.consumer.RefreshRequired.subscribe(response => {
+      this.loadLists()
+    })
+  }
+
+  loadLists() {
+    this.consumer.getPlaylists()
       .subscribe(respose => {
         this.lists = respose
       })

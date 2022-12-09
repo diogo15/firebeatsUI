@@ -30,8 +30,7 @@ export class SongFormComponent implements OnInit {
   }
 
   updateSong() {
-    console.log("Song: " + this.songObject.id)
-    console.log("Going to: " + this.songFormPlaylist.value)
-    this.consumer.updateSongToList(this.songObject.id, this.songFormPlaylist.value);
+    this.consumer.updateSongToList(this.songObject.id, this.songFormPlaylist.value)
+    .subscribe(response => console.log(response))
   }
 }
