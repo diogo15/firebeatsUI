@@ -1,28 +1,28 @@
-<div class="container">
-    <div class="songs-list" [class.opened]="activeList == true">
-        <app-songs-from-playlist *ngIf="activeList == true" [listParam]="list"
-            [active]="activeList"></app-songs-from-playlist>
-    </div>
+<div class="title">
+    <h2>Tus Listas</h2>
+</div>
 
-    <div class="content">
-        <div class="title">
-            <h2>Tus Listas</h2>
-        </div>
+<div class="songs-list" [class.opened]="activeList == true">
+    <app-songs-from-playlist *ngIf="activeList == true" 
+        [listParam]="list"
+        [active]="activeList">
+    </app-songs-from-playlist>
+</div>
 
-        <div class="list-display">
-            <ul class="list-container">
-                <div class="list-card" *ngFor="let list of lists">
-                    <li>
-                        <p>{{ list.playlistName }}</p>
+<div class="content">
+    <div class="list-display">
+        <ul class="list-container">
+            <div class="list-card" *ngFor="let list of lists">
+                <li>
+                    <p>{{ list.playlistName }}</p>
 
-                        <div class="many-songs" (click)="onListSongs(list.id)">
-                            <div>
-                                <p>{{ list.songs.length }}</p>
-                            </div>
+                    <div class="many-songs" (click)="onListSongs(list.id)">
+                        <div>
+                            <p>{{ list.songs.length }}</p>
                         </div>
-                    </li>
-                </div>
-            </ul>
-        </div>
+                    </div>
+                </li>
+            </div>
+        </ul>
     </div>
 </div>

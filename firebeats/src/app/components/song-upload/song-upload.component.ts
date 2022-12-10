@@ -8,23 +8,38 @@ import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
   styleUrls: ['./song-upload.component.sass']
 })
 
-export class SongUploadComponent implements OnInit, OnDestroy {
+export class SongUploadComponent implements OnInit {
 
   formData : any = new FormData()
 
   songForm = this.fb.group({
     songname: '',
     songPath: '',
+    isFavorite: false,
+    playlistId: null,
+    genreId: null,
+    albumId: null
   })
 
+  albums: Object | any;
+  genres: Object | any;
+
   constructor(
-    public fb: FormBuilder, 
-    private songService : ConsumerService) { }
+    public fb: FormBuilder, private consumer : ConsumerService) { }
 
-  ngOnInit(): void { }
+  ngOnInit() {
+    this.loadAlbums()
+    this.loadGenres()
+   }
 
-  ngOnDestroy(): void {
-    
+  loadGenres() {
+    this.consumer.getGenres()
+      .subscribe(response => this.genres = response)
+  }
+
+  loadAlbums() {
+    this.consumer.getAlbums()
+      .subscribe(response => this.albums = response)
   }
 
   uploadFile(event : any) {
@@ -36,7 +51,7 @@ export class SongUploadComponent implements OnInit, OnDestroy {
     var song = this.songForm.get('songPath')
     this.formData.append('file', song ? song.value : "")
     
-    this.songService.uploadSongFile(this.formData)
+    this.consumer.uploadSongFile(this.formData)
       .subscribe(response => {
         console.log(response)
         this.songForm.patchValue({
@@ -46,10 +61,11 @@ export class SongUploadComponent implements OnInit, OnDestroy {
   }
 
   submitForm() {
-    if (this.songForm != null) { 
-      this.songService.submitSong(this.songForm.value).subscribe(response => {})
+    if (this.songForm.valid) { 
+      console.log(this.songForm.value)
+      this.consumer.submitSong(this.songForm.value).subscribe(response => {})
     } else {
-      console.log("Y la data ???")
+      console.log("Form Invalid!")
     }
   }
 }
