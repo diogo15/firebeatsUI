@@ -16,26 +16,31 @@ export class MusicPlayerComponent implements OnInit {
   state: AudioStream = {} as AudioStream;
   currentFile: any = {};
 
-  constructor(public audioService:AudioManagerService) {
+  constructor(public audioService:AudioManagerService) { }
+
+  ngOnInit() {
+    this.songState()
+  }
+
+  songState() {
     this.audioService.getState().subscribe(state => {
-      this.state = state;
-    });
-  }  
+      this.state = state
+    })
+  }
 
   streamAudio(url:string) {
-    if(this.state.currentTime<=0){
+    if(this.state.currentTime <= 0){
       this.audioService.playStream(PLAYER + url).subscribe(events => {});
     }else{
       this.audioService.play();
     }
   }
-
-  stopAudio() {
-    this.audioService.pause();
-  }
   
-  ngOnInit(): void {
-    
+  stopAudio() {
+    this.audioService.stop()
   }
 
+  pauseAudio() {
+    this.audioService.pause()
+  }
 }

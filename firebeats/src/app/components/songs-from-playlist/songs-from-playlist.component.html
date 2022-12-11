@@ -8,7 +8,7 @@
             <div class="songslist-grid">
                 <li class="songslist-card" *ngFor="let songs of songObject">
                     <h5>{{ songs.songName }}</h5>
-                    
+
                     <div class="songslist-player">
                         <app-music-player [songPath]="songs.songPath"></app-music-player>
                     </div>

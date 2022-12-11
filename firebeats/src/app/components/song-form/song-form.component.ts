@@ -18,15 +18,24 @@ export class SongFormComponent implements OnInit {
 
   lists : any
 
-  constructor(private fBuilder : FormBuilder, private consumer : ConsumerService) {
-    this.consumer.getPlaylists().subscribe(response => {this.lists = response})
-  }
+  constructor(private fBuilder : FormBuilder, private consumer : ConsumerService) { }
 
   ngOnInit(): void {
+    this.getParams()
+    this.loadLists()
+    this.consumer.RefreshRequired.subscribe(response => {this.loadLists()})
+  }
+
+  getParams() {
     if (this.songObject.id != null) {
       this.songFormPlaylist.controls['songName'].setValue(this.songObject.songName)
       this.songFormPlaylist.controls['playlistId'].setValue(this.songObject.playlistId)
     }
+  }
+
+  loadLists() {
+    this.consumer.getPlaylists()
+      .subscribe(response => {this.lists = response})
   }
 
   updateSong() {
