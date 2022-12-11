@@ -1,8 +1,16 @@
 .form-container
+    padding: 10px
+
     background: rgba(255, 255, 255, 0.32)
     border-radius: 5px
     box-shadow: 0 4px 30px rgb(0 0 0 / 10%)
     backdrop-filter: blur(4.2px)
+
+.form-container mat-form-field
+    display: flex
+    justify-content: center
+    color: rgb(53, 34, 94)
+    background: white
 
 .form-title
     font-size: 15px
@@ -11,8 +19,16 @@
     background-color: rgba(248, 247, 216, 0.7)
     border-radius: 5px
 
-.file-box
-    border: 1px solid #ccc
-    display: inline-block
-    padding: 6px 12px
-    cursor: pointer
+.file-box::before
+    content: 'Post your Song'
+
+.file-box:after
+    color: transparent
+
+.file-box:hover
+    border-color: rgb(74, 39, 150)
+
+.button-form
+    display: flex
+    justify-content: center
+    padding: 5px 0

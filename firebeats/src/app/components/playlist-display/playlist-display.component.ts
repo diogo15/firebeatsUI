@@ -30,12 +30,10 @@ export class PlaylistDisplayComponent implements OnInit {
       })
   }
 
-  onClickTab(tab : string) {
-    this.activeTab = tab
-  }
-
   onListSongs(listId : any) {
-    if (this.activeList) this.activeList = false 
+    if (this.activeList) {
+      this.activeList = false
+    } 
     else {
       this.activeList = true
       this.list = listId

@@ -8,7 +8,8 @@
         <input matInput formControlName="songname">
     </mat-form-field>
 
-    <div>
+    <div class="file-form">
+        <mat-label>Song File</mat-label>
         <input class="file-box" type="file" (change)="uploadFile($event)" formControllerName="file">
     </div>
 
@@ -30,5 +31,7 @@
         </mat-select>
     </mat-form-field>
 
-    <button class="submit-button">Upload Song</button>
+    <div class="button-form">
+        <button class="submit-button">Upload Song</button>
+    </div>
 </form>
