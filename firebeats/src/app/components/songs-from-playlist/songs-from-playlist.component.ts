@@ -19,6 +19,9 @@ export class SongsFromPlaylistComponent implements OnInit {
   ngOnInit(): void {
     if(this.active) {
       this.loadList()
+      this.consumer.RefreshRequired.subscribe(response => {
+        this.loadList()
+      })
     } 
   }
 

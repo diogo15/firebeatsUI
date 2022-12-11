@@ -1,5 +1,8 @@
-<form class="form-song" [formGroup]="songFormPlaylist" (ngSubmit)="updateSong()">
+<div class="title">
+  <h4>Add to Playlist</h4>
+</div>
 
+<form class="form-song" [formGroup]="songFormPlaylist" (ngSubmit)="updateSong()">
   <mat-form-field appearance="fill">
     <mat-label>Playlist preferred</mat-label>
     <mat-select formControlName="playlistId" ng-model="list.id == playlistId">
@@ -9,5 +12,7 @@
     </mat-select>
   </mat-form-field>
 
-  <button>Agregar Cancion</button>
+  <div class="song-list-button">
+    <button>Add Song To List</button>
+  </div>
 </form>

@@ -1,34 +1,55 @@
-.content
-    background: rgba(255, 255, 255, 0.32)
-    border-radius: 5px
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
-    backdrop-filter: blur(4.2px)
-    -webkit-backdrop-filter: blur(4.2px)
-
 .title-list
     font-size: 15px
     text-align: center
     color: rgb(53, 34, 94)
     background-color: rgba(248, 247, 216, 0.7)
     border-radius: 5px
-    text-align: center
 
 .list-cards
-    margin: 10px
-    padding: 0
+    padding: 5px 10px
+
+    background: rgba(255, 255, 255, 0.32)
+    border-radius: 5px
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+    backdrop-filter: blur(4.2px)
+    -webkit-backdrop-filter: blur(4.2px)
+
+.list-cards
+    overflow-y: hidden
+    overflow: auto
+    scroll-behavior: smooth
+    height: 385px
+    max-height: 400px
+
+.list-cards::-webkit-scrollbar
+    width: 4.5px
+    border-radius: 15px
+
+.list-cards::-webkit-scrollbar-track
+    box-shadow: inset 0 0 6px rgba(66, 59, 59, 0.6)
+
+.list-cards::-webkit-scrollbar-thumb
+    background: #f1f1f1
+    border-radius: 25px
+
+.list-cards::-webkit-scrollbar-thumb:hover
+    background: #505050
 
 .card
     display: flex
     align-items: center
     justify-content: space-between
+    height: 55px
     border-radius: 10px
     border: 1px solid white
     margin-bottom: 10px
+    background: #482b62
 
 .play
-    background-color: rgb(53, 34, 94)
+    background: rgb(134, 46, 228)
     border: none
     border-radius: 5px
+    cursor: pointer
 
 .play:hover
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24)
@@ -47,9 +68,9 @@
 
 .song-group-item p
     font-weight: bold
-    font-size: 15px
+    font-size: 14px
     text-align: center
-    color: rgb(53, 34, 94)
+    color: white
 
 .add-button
     max-width: 45px
@@ -74,16 +95,14 @@
 .add-song-list
     position: absolute
     opacity: 0
-    background: linear-gradient(306deg, rgb(175, 89, 218) 0%, rgba(79, 45, 158, 0.8505777311) 100%)
-    padding: 10px
-    width: 280px
-    height: 400px
-    border-radius: 0 10px 10px 0
-    box-shadow: 20px 8px 20px 0px rgb(0 0 0 / 54%)
+    width: 250px
+    height: 185px
+    background: linear-gradient(48deg, rgb(175, 89, 218) 0%, rgba(79, 45, 158, 0.8505777311) 100%)
+    padding: 8px
+    border-radius: 10px 0px 0px 10px
     transition: 0.5s all
 
 .add-song-list.opened
     opacity: 1
-    margin-right: 300px
-    width: 280px
-    height: 400px
+    height: 185px
+    margin-left: -274px

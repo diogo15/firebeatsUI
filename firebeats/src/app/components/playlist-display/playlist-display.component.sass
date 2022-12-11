@@ -1,81 +1,18 @@
-.playlist-component
-    margin: 0
-    padding: 0
-    margin-top: 30px
-    margin-left: 15px
-    margin-bottom: 30px
-    width: 300px
-    height: 500px
-    max-width: 350px
-    max-height: 550px
-    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
-    border-radius: 10px
-    box-shadow: 10px 10px 30px -7px rgb(0 0 0 / 54%)
-
-.container
-    width: fit-content 200px
-    height: auto
-    padding: 10px
-    max-height: 500px
-    max-width: 300px
-    border-radius: 10px
-
-.tabber
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.32)
-    border-radius: 16px
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
-    backdrop-filter: blur(4.2px)
-    -webkit-backdrop-filter: blur(4.2px)
-
-    box-shadow: 10px 10px 30px -7px rgb(0 0 0 / 54%)
-    padding: 5px 20px
-
-.tabs
-    display: flex
-    justify-content: space-evenly
-    margin: 0
-    padding: 0
-
-.tabs .tab
-    margin: 0
-    background-color: rgba(248, 247, 216, 0.7)
-    border-radius: 20px
-    padding: 3.5px 20px
-    font-size: 15px
-
-.tab .icon
-    width: 15px
-    fill: black
-
-.tab:hover
-    color: white
-    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
-    cursor: pointer
-    fill: white
-
-.active
-    color: white
-    background: linear-gradient(306deg, rgba(175,89,218,1) 0%, rgba(79,45,158,0.850577731092437) 100%)
-
-.content
-    /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.32)
-    border-radius: 5px
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
-    backdrop-filter: blur(4.2px)
-    -webkit-backdrop-filter: blur(4.2px)
-
 .title
     text-align: center
+    font-size: 15px
+    color: rgb(53, 34, 94)
     background-color: rgba(248, 247, 216, 0.7)
     border-radius: 5px
 
-.title h2
-    font-size: 20px
-    color: rgb(53, 34, 94)
-    font-weight: bold
-    padding: 5px 0px
+.content
+    padding: 5
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.32)
+    border-radius: 5px
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1)
+    backdrop-filter: blur(4.2px)
+    -webkit-backdrop-filter: blur(4.2px)
 
 .list-display
     padding: 5px
@@ -155,10 +92,9 @@
     position: absolute
     opacity: 0
     background: linear-gradient(62deg, rgb(175, 89, 218) 0%, rgba(79, 45, 158, 0.8505777311) 100%)
-    margin-top: 70px
     padding: 10px
-    width: 280px
-    height: 400px
+    width: 250px
+    height: 350px
     border-radius: 0 10px 10px 0
     box-shadow: 20px 8px 20px 0px rgb(0 0 0 / 54%)
     transition: 0.5s all
@@ -166,5 +102,3 @@
 .songs-list.opened
     opacity: 1
     margin-left: 300px
-    width: 280px
-    height: 400px

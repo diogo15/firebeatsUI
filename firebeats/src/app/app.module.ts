@@ -26,6 +26,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule }  from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider'
 
 import { MatIconModule } from '@angular/material/icon';
 import { HeadsetComponent } from './components/headset/headset.component';
@@ -72,7 +73,8 @@ import { SongFormComponent } from './components/song-form/song-form.component';
     MatIconModule,
     MatTabsModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

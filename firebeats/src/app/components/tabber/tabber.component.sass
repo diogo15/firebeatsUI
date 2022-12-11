@@ -1,6 +1,6 @@
 .tabber
     background: rgba(255, 255, 255, 0.32)
-    border-radius: 16px
+    border-radius: 50px
     box-shadow: 0 4px 30px rgb(0 0 0 / 10%)
     backdrop-filter: blur(4.2px)
     -webkit-backdrop-filter: blur(4.2px)
@@ -8,18 +8,20 @@
     padding: 5px 20px
 
 .tabs
-    display: flex
-    justify-content: space-evenly
     margin: 0
     padding: 0
+    display: flex
+    justify-content: space-evenly
 
-.tabs .tab
+.tab
     padding: 5px
     background-color: rgba(248, 247, 216, 0.7)
-    margin: 0
     border-radius: 20px
     list-style: none
     padding: 5px 20px
+    width: 100%
+    max-width: 55px
+    text-align: center
 
 .tab:hover
     color: white
