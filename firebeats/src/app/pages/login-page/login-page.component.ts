@@ -6,7 +6,6 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -34,22 +33,20 @@ export class LoginPageComponent implements OnInit {
   ingresar(){ 
 
     const formData = new FormData();
-    this.auth.login(this.form.value).add(this.afterLogin());    
+    var login = this.auth.login(this.form.value).add(this.afterLogin());
+    
     
   }
 
   afterLogin(){
-
-    if (this.auth.isLoggedIn()){
-
+    setTimeout(() => {
+    if(this.auth.isLoggedIn()){
       this.fakeloading();
- 
-    } else {
-
-     this.error();
-     this.form.reset();
-
+    }else {
+      this.error();
+      this.form.reset();
     }
+    },2000);
   }
 
   error(){
@@ -59,6 +56,7 @@ export class LoginPageComponent implements OnInit {
     verticalPosition: this.verticalPosition,
     })
   }
+  
   fakeloading(){
 
     this.loading=true;

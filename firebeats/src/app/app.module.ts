@@ -35,6 +35,7 @@ import { TabberComponent } from './components/tabber/tabber.component';
 import { TabComponent } from './components/tab/tab.component';
 import { SongFormComponent } from './components/song-form/song-form.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
     TabberComponent,
     TabComponent,
     SongFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

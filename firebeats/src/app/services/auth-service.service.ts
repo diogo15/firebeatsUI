@@ -15,7 +15,9 @@ export class AuthServiceService {
 
   login( data:FormData ) {
 
-    return this.api.getToken(data).subscribe(res => this.setSession(res));
+    return this.api.getToken(data).subscribe((res:any) => {
+      this.setSession(res);
+    });
 
   }
         
@@ -33,17 +35,17 @@ export class AuthServiceService {
     localStorage.removeItem("expires_at");
   }
 
-  public isLoggedIn() {
-      return moment().isBefore(this.getExpiration());
+  isLoggedIn() {
+    return localStorage.getItem("id_user");
   }
 
   isLoggedOut() {
-      return !this.isLoggedIn();
+    return !this.isLoggedIn();
   }
 
   getExpiration() {
       const expiration = localStorage.getItem("expires_at");
-      const expiresAt = JSON.parse(expiration?expiration:"");
+      const expiresAt = JSON.parse(expiration?expiration:"{}");
       return moment(expiresAt);
   }
 

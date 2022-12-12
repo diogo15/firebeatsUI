@@ -1,0 +1,22 @@
+<app-header></app-header>
+<div class="body">
+
+    <form *ngIf="!loading"  [formGroup]= "form"  (ngSubmit)="ingresar()">
+            
+        <img src="../../../assets/img/user.png" width="50%">
+        <h1 class="txt">Registro</h1>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label class="label">Usuario</mat-label>
+            <input class="input" matInput autocomplete="off" formControlName="UserName">
+        </mat-form-field>
+
+        <mat-form-field class="ancho" appearance="fill">
+            <mat-label class="label">Contraseña</mat-label>
+            <input class="input" type="password" matInput autocomplete="off" formControlName="UserPassword">
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button class="ancho button" color="primary" [disabled]="form.invalid" >Registrar</button>
+    </form>
+
+</div>
