@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   form : FormGroup;
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, ) {
     this.form = this.fb.group({
       UserName:[''],
       UserPassword:['']
