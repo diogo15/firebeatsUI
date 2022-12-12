@@ -24,7 +24,7 @@ export class PlaylistDisplayComponent implements OnInit {
   }
 
   loadLists() {
-    this.consumer.getPlaylists()
+    this.consumer.getPlaylistsByUser()
       .subscribe(respose => {
         this.lists = respose
       })

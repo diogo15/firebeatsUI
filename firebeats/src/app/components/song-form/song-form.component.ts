@@ -34,7 +34,7 @@ export class SongFormComponent implements OnInit {
   }
 
   loadLists() {
-    this.consumer.getPlaylists()
+    this.consumer.getPlaylistsByUser()
       .subscribe(response => {this.lists = response})
   }
 

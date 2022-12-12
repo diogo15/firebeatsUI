@@ -16,7 +16,7 @@ export class ConsumerService {
     return this._refreshRequired;
   }
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _http : HttpClient, ) { }
   // Get all data from entity
 
   getToken(formData : FormData) {
@@ -35,8 +35,8 @@ export class ConsumerService {
     return this._http.get(API_BASE_URL + 'genre')
   }
 
-  getPlaylists() : Observable<object> {
-    return this._http.get(API_BASE_URL + 'playlist')
+  getPlaylistsByUser() : Observable<object> {
+    return this._http.get(API_BASE_URL + `playlist/user/${localStorage.getItem('id_user')}`)
   }
 
   // Get data from a specific entity
