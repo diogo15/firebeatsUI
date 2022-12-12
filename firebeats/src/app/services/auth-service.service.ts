@@ -23,12 +23,14 @@ export class AuthServiceService {
       const expiresAt = moment().add(30000,'second');
 
       localStorage.setItem('id_token', authResult.token);
+      localStorage.setItem('id_user', authResult.user);
       localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
   }          
 
   logout() {
-      localStorage.removeItem("id_token");
-      localStorage.removeItem("expires_at");
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("id_user");
+    localStorage.removeItem("expires_at");
   }
 
   public isLoggedIn() {
