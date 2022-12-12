@@ -18,6 +18,11 @@ export class ConsumerService {
 
   constructor(private _http : HttpClient) { }
   // Get all data from entity
+
+  getToken(formData : FormData) {
+    return this._http.post(API_BASE_URL + 'auth', this.stringifyBody(formData), { headers : this.HTTPOPTIONS })
+  }
+
   getAlbums() {
     return this._http.get(API_BASE_URL + 'album')
   }

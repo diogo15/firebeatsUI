@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Componentes
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +34,7 @@ import { SongsFromPlaylistComponent } from './components/songs-from-playlist/son
 import { TabberComponent } from './components/tabber/tabber.component';
 import { TabComponent } from './components/tab/tab.component';
 import { SongFormComponent } from './components/song-form/song-form.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 
 @NgModule({
@@ -76,7 +77,9 @@ import { SongFormComponent } from './components/song-form/song-form.component';
     MatRadioModule,
     MatSliderModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
