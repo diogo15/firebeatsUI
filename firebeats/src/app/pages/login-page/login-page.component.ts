@@ -6,6 +6,9 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -18,28 +21,37 @@ export class LoginPageComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
-  constructor(private fb:FormBuilder ,private _snackBar: MatSnackBar, private router: Router) {
+  constructor(private fb:FormBuilder ,private _snackBar: MatSnackBar, private router: Router, private auth:AuthServiceService) {
       this.form = this.fb.group({
-      user:['',Validators.required],
-      password:['',Validators.required]
-    })
+        UserName:['',Validators.required],
+        UserPassword:['',Validators.required]
+      })
    }
 
   ngOnInit(): void {
   }
 
-  ingresar(){
-  
-    const user= this.form.value.user;
-    const password= this.form.value.password;
-    if (user== "admin" && password==123 ){
- this.fakeloading();
+  ingresar(){ 
+
+    const formData = new FormData();
+    this.auth.login(this.form.value).add(this.afterLogin());    
+    
+  }
+
+  afterLogin(){
+
+    if (this.auth.isLoggedIn()){
+
+      this.fakeloading();
  
-    }else{
+    } else {
+
      this.error();
      this.form.reset();
+
     }
   }
+
   error(){
     this._snackBar.open('Usuario o contraseña ingresados son incorrectos','',{
     duration: 5000,
@@ -48,11 +60,9 @@ export class LoginPageComponent implements OnInit {
     })
   }
   fakeloading(){
+
     this.loading=true;
-    setTimeout(()=>{
-      //redireccion
-    this.router.navigate(['homepage']);
-    },1500);
+    setTimeout(()=>{ this.router.navigate(['homepage']); },1500);       
     
-    }
+  }
 }
