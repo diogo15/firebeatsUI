@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { PLAYER } from 'src/app/constants';
 import { ConsumerService } from 'src/app/services/api-routes/consumer.service';
+import { AudioManagerService } from 'src/app/services/audio-manager.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class SongsDisplayComponent implements OnInit {
   openForm : boolean = false
 
 
-  constructor(private consumer : ConsumerService) {}
+  constructor(private consumer : ConsumerService, private audioService : AudioManagerService) {}
 
   ngOnInit() {
     this.loadSongs()
@@ -35,5 +37,9 @@ export class SongsDisplayComponent implements OnInit {
       this.openForm = true
       this.songObject = songObject
     }
+  }
+
+  playSong(path : string){
+    this.audioService.playStream(PLAYER + path).subscribe(response => {})
   }
 }

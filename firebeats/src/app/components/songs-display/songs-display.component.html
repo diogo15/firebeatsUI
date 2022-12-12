@@ -8,7 +8,7 @@
 
 <ul class="list-cards">
     <div class="card" *ngFor="let song of songs">
-        <button class="play">
+        <button class="play" (click)="playSong(song.songPath)">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
                 <path
