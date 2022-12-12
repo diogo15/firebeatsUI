@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { Observable, Subject,tap } from 'rxjs';
 import { API_BASE_URL, SONG_API_URL } from 'src/app/constants';
 
 @Injectable({
@@ -43,6 +43,10 @@ export class ConsumerService {
   getSong(id : any) {
     return this._http.get<any>(API_BASE_URL + `songs/${id}`)
   }
+  
+  getSearch(songName:string){
+    return this._http.get<string>(API_BASE_URL+`search/${songName}`)
+  } 
 
   getPlaylist(listParam : any) {
     return this._http.get<any>(API_BASE_URL + `playlist/${listParam}`)
