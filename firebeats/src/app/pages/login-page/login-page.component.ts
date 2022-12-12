@@ -43,10 +43,8 @@ export class LoginPageComponent implements OnInit {
   afterLogin(){
     setTimeout(() => {
     if(this.auth.isLoggedIn()){
-      this.logged = true
       this.fakeloading();
     }else {
-      this.logged = false
       this.error();
       this.form.reset();
     }
