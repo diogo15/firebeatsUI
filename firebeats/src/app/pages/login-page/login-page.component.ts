@@ -20,6 +20,8 @@ export class LoginPageComponent implements OnInit {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'bottom';
 
+  logged : boolean = false
+
   constructor(private fb:FormBuilder ,private _snackBar: MatSnackBar, private router: Router, private auth:AuthServiceService) {
       this.form = this.fb.group({
         UserName:['',Validators.required],
@@ -34,15 +36,17 @@ export class LoginPageComponent implements OnInit {
 
     const formData = new FormData();
     var login = this.auth.login(this.form.value).add(this.afterLogin());
-    
+
     
   }
 
   afterLogin(){
     setTimeout(() => {
     if(this.auth.isLoggedIn()){
+      this.logged = true
       this.fakeloading();
     }else {
+      this.logged = false
       this.error();
       this.form.reset();
     }
