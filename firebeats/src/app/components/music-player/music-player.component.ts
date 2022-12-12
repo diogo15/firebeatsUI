@@ -43,4 +43,8 @@ export class MusicPlayerComponent implements OnInit {
   pauseAudio() {
     this.audioService.pause()
   }
+
+  setVolume(event : any) {
+    this.audioService.changeVolume(event.target.value)
+  }
 }

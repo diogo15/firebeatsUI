@@ -88,6 +88,10 @@ export class AudioManagerService {
     this.audioObj.currentTime = seconds;
   }
 
+  changeVolume(value: any) {
+    this.audioObj.volume = value
+  }
+
   formatTime(time: number, format: string = "HH:mm:ss") {
     const momentTime = time * 1000;
     return momentTime;
