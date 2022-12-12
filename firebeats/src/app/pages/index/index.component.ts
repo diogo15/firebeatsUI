@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
   constructor(private consumer : ConsumerService) {
 
     this.options = this.myControl.valueChanges.pipe(
-      switchMap(SongName => this.consumer.getSearch(SongName))
+      switchMap(songName => this.consumer.getSearch(songName))
     );
 
    }
@@ -36,7 +36,7 @@ export class IndexComponent implements OnInit {
     // .subscribe(response)
   }
   displayFn(song: Song): string {
-    return song && song.SongName ? song.SongName : '';
+    return song && song.songName ? song.songName : '';
   }
 
 }
