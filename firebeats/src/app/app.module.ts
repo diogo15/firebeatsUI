@@ -36,7 +36,7 @@ import { TabComponent } from './components/tab/tab.component';
 import { SongFormComponent } from './components/song-form/song-form.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { RegisterComponent } from './pages/register/register.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { RegisterComponent } from './pages/register/register.component';
     TabComponent,
     SongFormComponent,
     RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,8 @@ import { RegisterComponent } from './pages/register/register.component';
     MatTabsModule,
     MatSelectModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
+    MatAutocompleteModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

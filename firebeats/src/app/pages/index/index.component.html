@@ -31,15 +31,16 @@
         </div>
 
     </div> 
-
-    <div class="SD">
-        <mat-form-field appearance="fill" class="fill">
-            <mat-label class="search">Search your favorite artist</mat-label>
-            <input matInput placeholder="Search your favorite artist" class="search" />
-            <mat-icon class='search-icon' color="primary" matPrefix>search</mat-icon>
-
+    <br>
+    <form class="form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Assignee</mat-label>
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" class="search">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let Option of options | async" [value]="Option">
+              {{Option.SongName}}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
-
-    </div>
-   
+      </form>
 </section>

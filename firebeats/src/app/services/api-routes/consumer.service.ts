@@ -44,8 +44,8 @@ export class ConsumerService {
     return this._http.get<any>(API_BASE_URL + `songs/${id}`)
   }
   
-  getSearch(songName:string){
-    return this._http.get<string>(API_BASE_URL+`search/${songName}`)
+  getSearch( songName : any){
+    return this._http.get<any>(API_BASE_URL+`songs/search/${songName}`)
   } 
 
   getPlaylist(listParam : any) {
