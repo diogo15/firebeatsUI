@@ -45,6 +45,6 @@ export class MusicPlayerComponent implements OnInit {
   }
 
   setVolume(event : any) {
-    this.audioService.changeVolume(event.target.value)
+    this.audioService.changeVolume(event.value)
   }
 }
