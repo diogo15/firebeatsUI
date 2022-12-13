@@ -34,9 +34,7 @@ export class LoginPageComponent implements OnInit {
 
   ingresar(){ 
 
-    const formData = new FormData();
     var login = this.auth.login(this.form.value).add(this.afterLogin());
-
     
   }
 

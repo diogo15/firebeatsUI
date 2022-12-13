@@ -8,27 +8,27 @@
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label class="label">Usuario</mat-label>
-            <input class="input" matInput autocomplete="off" formControlName="UserName">
+            <input class="input" matInput autocomplete="off" formControlName="userName">
         </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label class="label">Contraseña</mat-label>
-            <input class="input" type="password" matInput autocomplete="off" formControlName="UserPassword">
+            <input class="input" type="password" matInput autocomplete="off" formControlName="userPassword">
         </mat-form-field>
 
         <mat-form-field class="ancho" appearance="fill">
             <mat-label class="label">Email</mat-label>
-            <input class="input" type="password" matInput autocomplete="off" formControlName="UserEmail">
+            <input class="input" type="email" matInput autocomplete="off" formControlName="userEmail">
         </mat-form-field>
 
-        <mat-radio-group aria-label="Select an option">
-            <mat-radio-button checked value="0">Solo quiero Escuchar </mat-radio-button>
-            <mat-radio-button value="1">Artista</mat-radio-button>
+        <mat-radio-group aria-label="Select an option" type="checkbox" formControlName="isArtist">
+            <mat-radio-button value="si">Eres Artista?</mat-radio-button>
+            <mat-radio-button value="no">Solo Escucho Musica!</mat-radio-button>
         </mat-radio-group>
         
         <br>
 
-        <input type="hidden" name="cityId" value="cityId">
+        <input type="hidden" name="cityId" value="" formControlName="cityId">
 
         <button type="submit" mat-raised-button class="registerBtn ancho button" color="primary" [disabled]="form.invalid" >Registrar</button>
     </form>

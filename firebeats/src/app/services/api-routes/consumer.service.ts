@@ -78,6 +78,15 @@ export class ConsumerService {
       )
   }
 
+  postUser( user : any){
+    if(user.isArtist == "si"){
+      user.isArtist = true;
+    }else{
+      user.isArtist = false;
+    }
+    return this._http.post(API_BASE_URL + 'users', this.stringifyBody(user), { headers : this.HTTPOPTIONS })
+  }
+
   private stringifyBody(object : any) {
     return JSON.stringify(object)
   }
